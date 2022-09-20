@@ -12,7 +12,7 @@
       <% @cars.sample(12).each do |car| %>
       <div class="p-4 col-12 col-lg-4">
       <div class="cards-home">
-      <%= link_to(car_path(car.id)) do %>
+      <%= link_to(car_path(car.id), data: { turbo: false }) do %>
         <div class="card-place m-2">
           <%=  cl_image_tag car.photo.key %>
           <div class="card-place-infos p-3">

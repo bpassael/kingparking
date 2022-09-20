@@ -20,6 +20,7 @@ class BookingsController < ApplicationController
     @booking.destroy
     redirect_to profile_path, status: :see_other
   end
+
   private
 
   def booking_params

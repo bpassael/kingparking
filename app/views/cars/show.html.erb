@@ -4,7 +4,7 @@
          <%= cl_image_tag @car.photo.key, crop: :fill, class: "d-block w-100"%>
       </div>
       <div class="col-12 col-lg-5 d-flex flex-column">
-         <h2 class="m-4"><strong><%= @car.title %></strong></h2>
+         <h2 class="mb-4"><strong><%= @car.title %></strong></h2>
          <p><strong>📍 Localization</strong> : <%= @car.street_address %>, <%= @car.address %></p>
          <p><strong>Car type</strong> : <%= @car.car_type %></p>
          <p><strong>Mileage</strong> : <%= @car.mileage %>km</p>

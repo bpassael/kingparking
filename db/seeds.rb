@@ -46,7 +46,7 @@ car_renter.save!
                 street_address: "#{Faker::Address.street_address}, #{Faker::Address.city}"
           )
   file = URI.open(client.photos.search("#{make_and_model}", orientation: "landscape", size: "small").first.src["medium"])
-  p file
+  p file.class
   car.photo.attach(io: file, filename: "car.png", content_type: "image/png")
   car.save!
 end
