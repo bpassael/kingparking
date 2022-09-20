@@ -1,0 +1,31 @@
+<div class="container my-5">
+   <div class="row">
+      <div class="col-12 col-lg-7">
+         <%= cl_image_tag @car.photo.key, crop: :fill, class: "d-block w-100"%>
+      </div>
+      <div class="col-12 col-lg-5 d-flex flex-column">
+         <h2 class="m-4"><strong><%= @car.title %></strong></h2>
+         <p><strong>📍 Localization</strong> : <%= @car.street_address %>, <%= @car.address %></p>
+         <p><strong>Car type</strong> : <%= @car.car_type %></p>
+         <p><strong>Mileage</strong> : <%= @car.mileage %>km</p>
+         <p><strong>Fuel type</strong> : <%= @car.fuel_type %></p>
+         <p><strong>Transmission</strong> : <%= @car.transmission %></p>
+         <p><strong>Year</strong> : <%= @car.year %></p>
+         <p><strong>Price per day</strong> : $<%= @car.price_per_day %></p>
+         <% if user_signed_in? %>
+         <h2 class="m-3">Book this car</h2>
+         <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+            <div id='car-booking-dates' data-unavailable="<%= @car.unavailable_dates.to_json %>">
+               <%= simple_form_for [@car, @booking], data: { turbo: false }  do |f| %>
+               <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+               <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+               <%= f.button :submit, "Go", class: "btn btn-primary" %>
+               <% end %>
+            </div>
+         </div>
+         <% else %>
+         <h2><%= link_to "Sign in to book this car", new_user_session_path, class: "nav-link" %></h2>
+         <% end %>
+      </div>
+   </div>
+</div>

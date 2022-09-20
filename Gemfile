@@ -21,6 +21,18 @@ gem "jsbundling-rails"
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
 
+# Faker
+gem "faker"
+
+# Pexels
+gem "pexels"
+
+# Cloudinary
+gem "cloudinary"
+
+# Geocoder
+gem "geocoder"
+
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 
@@ -44,6 +56,9 @@ gem "bootsnap", require: false
 
 # Use Sass to process CSS
 gem "sassc-rails"
+
+gem "dotenv-rails", groups: [:development, :test]
+
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"

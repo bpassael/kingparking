@@ -1,0 +1,16 @@
+<div class="container">
+   <h2 class="mt-3 text-center">Welcome <%= @user.first_name%> ! Manage your bookings:</h2>
+   <% @user.bookings.reverse.each do |booking| %>
+   <div class="card-product my-3">
+      <%=  cl_image_tag booking.car.photo.key %>
+      <div class="card-product-infos">
+         <h2>Booking for <%= booking.car.title %> in <%= booking.car.address %></h2>
+         <p>From <strong><%= booking.start_date %></strong> to <strong><%= booking.end_date %></strong> - Total price : <strong>$<%= booking.total_price %></strong></p>
+         <p><%= mail_to booking.car.user.email, "Contact owner" %></p>
+         <%= link_to(car_booking_path(booking.car.id, booking.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel this booking ?"}) do%>
+         <i class="fa-solid fa-trash-can"></i>
+         <% end %>
+      </div>
+   </div>
+   <% end %>
+</div>
