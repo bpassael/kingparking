@@ -8,11 +8,11 @@
 
 <div class="container my-5">
   <div class="row">
-  <h3 class="text-center my-5" id="home-title">Latest cars</h3>
+  <h3 class="text-center my-2" id="home-title">Latest cars</h3>
       <% @cars.sample(12).each do |car| %>
       <div class="p-4 col-12 col-lg-4">
       <div class="cards-home">
-      <%= link_to(car_path(car.id), data: { turbo: false }) do %>
+      <%= link_to(car_path(car.id)) do %>
         <div class="card-place m-2">
           <%=  cl_image_tag car.photo.key %>
           <div class="card-place-infos p-3">
