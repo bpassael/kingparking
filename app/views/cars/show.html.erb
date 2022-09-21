@@ -2,6 +2,7 @@
    <div class="row">
       <div class="col-12 col-lg-7">
          <%= cl_image_tag @car.photo.key, crop: :fill, class: "d-block w-100"%>
+         <p id="booking-infos" class="mt-5 ms-5"></p>
       </div>
       <div class="col-12 col-lg-5 d-flex flex-column">
          <h2 class="mb-4 text-center"><strong><%= @car.title %></strong></h2>
@@ -11,7 +12,7 @@
          <p><strong>Fuel type</strong> : <%= @car.fuel_type %></p>
          <p><strong>Transmission</strong> : <%= @car.transmission %></p>
          <p><strong>Year</strong> : <%= @car.year %></p>
-         <p><strong>Price per day</strong> : $<%= @car.price_per_day %></p>
+         <p><strong>Price per day</strong> : $<span id="price_per_day"><%= @car.price_per_day %></span></p>
          <% if user_signed_in? %>
          <h2 class="m-3 text-center">Book this car</h2>
          <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
@@ -19,7 +20,7 @@
                <%= simple_form_for [@car, @booking], data: { turbo: false }  do |f| %>
                <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
                <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-               <%= f.button :submit, "Go", class: "btn btn-primary" %>
+               <%= f.button :submit, "Go", class: "btn btn-primary", id: "submit-button" %>
                <% end %>
             </div>
          </div>
